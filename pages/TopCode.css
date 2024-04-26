@@ -1,0 +1,403 @@
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+.Logo{
+    width: 300px;
+    cursor: pointer;
+}
+
+.cart{
+  width:40px ; 
+  height: 40px ;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+    text-decoration: none;
+}
+
+a{
+  cursor: pointer;
+}
+
+.Slogan{
+    position: relative;
+    left: 26px;
+    top: -20px;
+}
+
+
+.buttonOne{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 170px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonTwo{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 220px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonThree{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 270px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFour{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 320px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFive{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 370px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.catalog {
+  padding: 0 10%;
+  margin: 40px 0;
+  font-size: 16px;
+}
+
+.indicator p{
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+
+.search-div{
+  border: 4px solid rgb(26, 30, 139);
+  height: fit-content;
+  width: 90%;
+}
+
+.search-icon{
+  object-fit: fill;
+  margin-left: 20px;
+  width: 35px;
+  position: relative;
+  top: 10px;
+}
+
+.search-div input{
+      padding: 10px;
+      width: 80%;
+      height: 50px;
+      font-size: 16px;  
+      border: none;
+}
+.search-div input:focus{
+  outline: none;
+}
+
+.go-btn{
+  padding: 15px;
+  font-size: 16px;
+  width: 150px;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-box{
+  margin: 20px 0;
+  display: flex;
+
+}
+.filter{
+  width: 20%;
+  padding: 20px;
+  background-color: rgb(209, 247, 234);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.filter .down-arrow{
+  position: relative;
+  font-weight: 900;
+  font-size: 1.5rem;
+  bottom: 5px;
+}
+
+.filter-title{
+  font-size: 20px;
+  margin-top: 12px;
+ line-height: 30px;
+}
+
+.main{
+  width: 70%;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top{
+  margin: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+
+.top .txt{
+  font-size: 25px;
+  font-weight: 800;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.top select{
+   padding: 10px;
+   margin-right: 10px;
+}
+.top select:focus{
+  outline: none;
+}
+
+.middle-div span{
+  margin: 12px ;
+ 
+  font-style: oblique;
+}
+
+.buttons{
+  text-align: right;
+  margin: 12px 0;
+  margin-right: 20px;
+}
+
+.buttons button{
+  cursor: pointer;
+  padding:8px 12px;
+  background: white;
+  border: 2px solid RGB(90, 127, 142);
+  color: rgb(61, 17, 103);
+  transition: background 0.5s;
+  transition: color 0.5s;
+}
+
+.buttons button:hover{
+  background: RGB(90, 127, 142);
+  color: white;
+}
+
+
+.bottom-div{
+ display: flex;
+ margin: 10px;
+ margin-left: 30px;
+}
+
+.products{
+  flex-basis: 25%;
+  width: 200px;
+  transition: transform 0.5s;
+}
+.products:hover{
+  transform: translateY(-5px);
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.products img{
+  width: 90%;
+}
+
+.detailed-indicator {
+ padding: 0 10%;
+  position: relative;
+  margin-left: 40px;
+  top: 40px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.product-detail{
+  display: flex;
+  padding: 0 8%;
+  margin-top: 50px;
+}
+
+.left{
+   flex-basis: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+} 
+.left img{
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.right{
+  flex-basis: 50%;
+  margin-top: 20px;
+}
+
+.description{
+  width: 80%;
+  margin: 30px 0;
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+
+.right .price{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.quantity{
+  font-size: 18px;
+}
+.quantity input {
+  text-align: center;
+  padding: 10px 20px;
+  width: 100px;
+  font-size: 18px;
+}
+
+.quantity button{
+  margin: 0 20px;
+  padding: 10px 20px;
+  width: 150px;
+  font-size: 16px;
+  background: rgb(184, 69, 28);
+  color: white;
+  cursor: pointer;
+}
+
+.quantity button:hover{
+  background: rgb(219, 97, 53);
+}
+
+.cart-div{
+  padding: 10px 10%;
+  margin-top: 50px;
+}
+
+.cart-table-div{
+  display: flex;
+  margin-top: 20px;
+}
+
+.table{
+  width: 80%;
+ 
+}
+
+table{
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+table th{
+  background: rgb(238, 238, 238);
+  padding: 20px;
+  width: 120px;
+}
+table td{
+  text-align: center;
+  padding: 5px 20px;
+}
+table img{
+  height: 80px;
+  width: 80px;
+}
+
+table input{
+  width: 50px;
+  height: 30px;
+  text-align: center;
+}
+table input:focus{
+  outline: none;
+}
+
+.table-side-div{
+  width: 25%;
+  padding: 20px;
+  margin-right: 150px;
+  font-size: 18px;
+  background: rgb(238, 238, 238);
+}
+.table-side-div .blue{
+  background: rgb(199, 230, 244);
+  padding: 30px 10px;
+}
+
+.table-side-div p{
+  margin-top: 20px;
+}
+
+.btn-group{
+  background: rgb(100, 146, 191);
+  color: white;
+  font-size: 18px;
+  width: 100%;
+  padding: 10px ;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-button{
+  margin-top: 30px;
+}
+.cart-button button{
+  width: 200px;
+  padding: 12px ;
+  background: rgb(238, 238, 238);
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+
+

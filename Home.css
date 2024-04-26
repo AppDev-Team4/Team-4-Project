@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+.Logo{
+    width: 300px;
+    cursor: pointer;
+}
+
+.cart{
+  width:40px ; 
+  height: 40px ;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+    text-decoration: none;
+}
+
+a{
+  cursor: pointer;
+}
+
+.Slogan{
+    position: relative;
+    left: 26px;
+    top: -20px;
+}
+
+
+.buttonOne{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 170px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonTwo{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 220px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonThree{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 270px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFour{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 320px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFive{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 370px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.banner{
+
+  position: relative;
+  text-align: center;
+  color: white;
+  top: 30px;
+
+}
+
+.mntns{
+    width: 100%;
+    height: 250px;
+}
+
+.leftText{
+  position: relative;
+  text-align: center;
+  padding: 10px 5px;
+  bottom: 180px;
+  font-size: 30px;
+
+}
+
+.cardDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    height: 300px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.card.rect1 {
+    background-image: url(https://i.postimg.cc/DyXRhzk4/Graphics-1.png);
+}
+
+.card.rect2 {
+    background-image: url(https://i.postimg.cc/D0tDG9sz/Graphics-2.png);
+}
+
+.card.rect3 {
+    background-image: url(https://i.postimg.cc/L47GG17M/Graphics-3.png);
+}
+
+.card.rect4 {
+    background-image: url(https://i.postimg.cc/XqZmpjrh/Graphics-4.png);
+}

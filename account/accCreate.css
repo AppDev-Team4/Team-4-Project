@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+.Logo{
+    width: 300px;
+    cursor: pointer;
+}
+
+.cart{
+  width:40px ; 
+  height: 40px ;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+    text-decoration: none;
+}
+
+a{
+  cursor: pointer;
+}
+
+.Slogan{
+    position: relative;
+    left: 26px;
+    top: -20px;
+}
+
+
+.buttonOne{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 170px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonTwo{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 220px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonThree{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 270px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFour{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 320px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.buttonFive{
+  background-color: rgb(207, 203, 203);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  left: 370px;
+  width: 165px;
+  cursor: pointer;
+}
+
+.loginBox{
+    margin: auto;
+    width: 70%;
+    height: 650px;
+    background-color:rgb(207, 203, 203);
+    position: relative;
+    top: 50px;
+    border-radius: 20px;
+}
+
+.CaC{
+    position: relative;
+    top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.AhA{
+    position: relative;
+    top: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.div1{
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.div2{
+    position: relative;
+    top: 10px;
+    left: 380px;
+}
+
+.div3 {
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.div4 {
+    position: relative;
+    top: 10px;
+    left: 380px;
+}
+
+.div5 {
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.div6 {
+    position: relative;
+    top: 10px;
+    left: 380px;
+}
+
+.div7{
+    position: relative;
+    top: 40px;
+    left: 50px;
+}
+
+.div8{
+    position: relative;
+    top: 70px;
+    left: 50px;
+}
+
+.div9{
+    position: relative;
+    top: 34px;
+    left: 500px;
+    cursor: pointer;
+    width: min-content;
+}
+
+.eye{
+    width: 30%;
+    position: relative;
+    right: 20px;
+    top: 20px;
+    
+}
+
+.p{
+    width: min-content;
+}
+
+p.SP{
+    position: relative;
+    bottom: 20px;
+}
+
+.PwReq{
+    width: 40%;
+    position: relative;
+    left: 48px;
+}
+
+.create{
+    width: 40%;
+    position: relative;
+    left: 70px;
+    bottom: 10px;
+    cursor: pointer;
+}
