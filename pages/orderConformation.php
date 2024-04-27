@@ -111,7 +111,7 @@ $_SESSION['cart'] = [];
     </div>
 
     <div class="Navigation">
-        <a href="/index.php"><button type="button" class="buttonOne">Home</button></a>
+        <a href="/home.php"><button type="button" class="buttonOne">Home</button></a>
         <a href="../pages/catalog.php"><button type="button" class="buttonTwo">Catalog</button></a>
         <button type="button" class="buttonThree">Account</button>
         <a href="../pages/checkout.php"><button type="button" class="buttonFour">Check Out</button></a>
@@ -136,7 +136,7 @@ $_SESSION['cart'] = [];
                         <p>Address: <span class="rightalign"><?php echo $customer['Address'] ?><br><?php echo $customer['City']?>, <?php echo $customer['State']?> <?php echo $customer['ZipCode']?></span></p>
                         <p>Order ID: <span class="rightalign"><?php echo $orderID?></span></p>
                         <p><i>Order processing, order will be sent in 3-5 business days.</i></p>
-                        <a href="/index.php"><button type="btn-group" class="buttonOne">Return to Home</button></a>
+                        <a href="/home.php"><button type="btn-group" class="buttonOne">Return to Home</button></a>
                 </div>
             </div>
         </div>

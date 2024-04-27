@@ -7,10 +7,11 @@ if (!isset($_SESSION['customerID'])) {
 
 if (isset($_SESSION['customerID'])) {
     echo '<a href="/account/logout.php">Logout</a>';
+	$customerID = $_SESSION['customerID'];
+	$email = $_SESSION['email'];
 }
 
-$customerID = $_SESSION['customerID'];
-$email = $_SESSION['email'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +42,7 @@ $email = $_SESSION['email'];
     </div>
 
     <div class="Navigation">
-        <a href="/index.php"><button type="button" class="buttonOne">Home</button></a>
+        <a href="/home.php"><button type="button" class="buttonOne">Home</button></a>
         <a href="../pages/catalog.php"><button type="button" class="buttonTwo">Catalog</button></a>
         <a href="../account/accCreate.php"><button type="button" class="buttonThree">Account</button></a>
         <a href="../pages/checkout.php"><button type="button" class="buttonFour">Check Out</button></a>

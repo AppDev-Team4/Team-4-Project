@@ -19,28 +19,24 @@ if (isset($_SESSION['customerID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peak Cart</title>
+    <title>E-Commerce </title>
 
-    <link rel="stylesheet" href="LoginPage.css">
+    <link rel="stylesheet" href="Home.css">
 
 </head>
-
 <body>
     <div class="container">
         <div class="navbar">
             <img src="https://i.postimg.cc/bwXcStHR/Logo.png" class="Logo">
             <nav>
-                <a ref="">MY ACCOUNT</a>
-                <img src="https://i.postimg.cc/rFR2pJWm/cart.png" class="cart">
+                <a href="../pages/cart.php">MY CART
+                <img src="https://i.postimg.cc/brg7SrVS/cart.png" class="cart"></a>
             </nav>
         </div>
-
     </div>
 
     <div class="Slogan">
-    <p></p>
-     <p><b>Scaling New Heights in Fashion, Living and Wellness</b></p>
-        
+        <p><b>Scaling New Heights in Fashion, Living and Wellness</b></p>
     </div>
 
     <div class="Navigation">
@@ -51,20 +47,22 @@ if (isset($_SESSION['customerID'])) {
         <a href="../pages/about.php"><button type="button" class="buttonFive">About Us</button></a>
     </div>
 
-
-    <div class="loginDiv">
-        <h1>Login</h1>
-        <form id=loginForm action="login.php" method="post">
-            <label>Email</label>
-            <input type="email" name="email" required>
-            <label>Password</label>
-            <input type="password" name="password" required>
+    <div class="banner">
+        <img class="mntns" src="https://i.postimg.cc/NFQh0mDw/banner.jpg">
+        <div class="leftText">
+            Elevate your lifestyle with Peak Cart!
             <br>
+            Explore trendsetting fashion, inspiring home goods, exciting hobbies, and vital health + wellness products.
             <br>
-          <a href="/home.php">  <input type="submit" value="Log in"></a></p>
-        </form>
-        
+            Reach new peaks of style and wellbeing w/ FREE SHIPPING on all new orders!
+        </div>  
     </div>
-    <p class="NeedAcc">Need to create account? <a href="accCreate.php">Sign up</a></p>
+
+    <div class="cardDiv">
+        <a href="../pages/catalog.php?category=clothing"><div class="card rect1"></div></a>
+        <a href="../pages/category.php?category=homeGoods"><div class="card rect2"></div></a>
+        <a href="../pages/category.php?category=hobbies"><div class="card rect3"></div></a>
+        <a href="../pages/category.php?category=healthWellness"><div class="card rect4"></div></a>
+    </div>
 </body>
 </html>

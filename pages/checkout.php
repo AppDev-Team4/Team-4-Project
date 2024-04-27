@@ -5,18 +5,28 @@ session_start();
 
 if (!isset($_SESSION['customerID'])) {
     echo '<a href="/account/LoginPage.php">Login</a>';
+	$fName = "";
 }
 
 if (isset($_SESSION['customerID'])) {
     echo '<a href="/account/logout.php">Logout</a>';
+	$customerID = $_SESSION['customerID'];
+	$email = $_SESSION['email'];
+	$fName = $_SESSION['fName'];
 }
 
-$customerID = $_SESSION['customerID'];
-$email = $_SESSION['email'];
-$fName = $_SESSION['fName'];
+
+
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
+}
+
+//check if the cart is empty to set default values
+if(empty($_SESSION['cart'])){
+	$subtotal = 0;
+	$taxes = 0;
+	$total = 0;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -72,7 +82,7 @@ $isEmpty = empty($_SESSION['cart']);
     </div>
 
     <div class="Navigation">
-        <a href="/index.php"><button type="button" class="buttonOne">Home</button></a>
+        <a href="/home.php"><button type="button" class="buttonOne">Home</button></a>
         <a href="../pages/catalog.php"><button type="button" class="buttonTwo">Catalog</button></a>
         <a href="../account/accCreate.php"><button type="button" class="buttonThree">Account</button></a>
         <a href="../pages/checkout.php"><button type="button" class="buttonFour">Check Out</button></a>

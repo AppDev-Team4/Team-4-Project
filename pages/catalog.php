@@ -4,16 +4,19 @@
 include 'products.php';
 include 'itemQuery.php';
 
-if (!isset($_SESSION['customerID'])) {
+$isCustomerIdSet = isset($_SESSION['customerID']);
+
+if (!$isCustomerIdSet) {
     echo '<a href="/account/LoginPage.php">Login</a>';
 }
 
-if (isset($_SESSION['customerID'])) {
+if ($isCustomerIdSet) {
     echo '<a href="/account/logout.php">Logout</a>';
+	$customerID = $_SESSION['customerID'];
+	$email = $_SESSION['email'];
 }
 
-$customerID = $_SESSION['customerID'];
-$email = $_SESSION['email'];
+
 ?>
 
 <html lang="en">
@@ -47,7 +50,7 @@ $email = $_SESSION['email'];
 
     <!-- Navigate between different pages of the website --> 
     <div class="Navigation">
-        <a href="/index.php"><button type="button" class="buttonOne">Home</button></a>
+        <a href="/home.php"><button type="button" class="buttonOne">Home</button></a>
         <a href="../pages/catalog.php"><button type="button" class="buttonTwo">Catalog</button></a>
         <a href="../account/accCreate.php"><button type="button" class="buttonThree">Account</button></a>
         <a href="../pages/checkout.php"><button type="button" class="buttonFour">Check Out</button></a>
@@ -57,7 +60,7 @@ $email = $_SESSION['email'];
     <div class="catalog">
         <div class="indicator">
             <p>
-            <a href="/index.php">Home</a> > 
+            <a href="/home.php">Home</a> > 
             <a href="../pages/catalog.php">Product Catalog</a>  
             </p>
         </div>
@@ -94,6 +97,10 @@ $email = $_SESSION['email'];
                 </div>
             </form>
             <div class="main">
+				<form id="personalized_recommendation-form" method="get" action="catalog.php">
+					<!-- Button to show the personalized recommendation for account logged in-->
+					
+				</form>
                 <!-- Form for the ordering of the items found on the catalog page -->
                 <form id="sort_by-form" method="get" action="catalog.php">
                     <div class="top">
@@ -105,6 +112,11 @@ $email = $_SESSION['email'];
                                 <option value="featured" <?php echo ($sortOrder === 'featured') ? 'selected' : ''; ?>>Featured</option>
                                 <option value="low_to_high" <?php echo ($sortOrder === 'low_to_high') ? 'selected' : ''; ?>>Price : Low to High</option>
                                 <option value="high_to_low" <?php echo ($sortOrder === 'high_to_low') ? 'selected' : ''; ?>>Price : High to Low</option>
+								<?php 
+								if ($isCustomerIdSet){
+									echo '<option value="personalized_recommendation">Personalized Recommendation</option>';
+								}
+								?>
                             </select>
                             <!-- Applies the order condition to the SQL query updating the items on the catalog page to be in certain order -->
                             <button type="submit">Apply</button>

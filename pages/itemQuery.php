@@ -1,7 +1,14 @@
 <?php
 include 'dbConnect.php';
+session_start();
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+if (isset($_SESSION['customerID'])) {
+    $customerID = $_SESSION['customerID'];
+} else {
+	$customerID = NULL;
+}
 
 /** 
 * @brief getItems
@@ -25,82 +32,105 @@ $search = isset($_GET['search']) ? $_GET['search'] : '';
 * items on the catalog page.
 *
 */
-function getItems($limit, $currentPage, $category, $sortOrder, $filterByPrice, $search) {
+function getItems($limit, $currentPage, $category, $sortOrder, $filterByPrice, $search, $customerID) {
     global $conn;
     $startItem = ($currentPage - 1) * $limit;
 
     $sql = "SELECT * FROM Products";
+	
+	// if the Personalized Recommendation button is clicked it will query items based off AI Model
+	if ($sortOrder == 'personalized_recommendation' and $customerID != NULL){
+		// check if customer has previous purchase history by checking 
+		$id = strval($customerID);
+		$sql = "SELECT COUNT(*) FROM customerpurchases WHERE CustomerID = ";
+		$sql .= $id;
+		echo $sql;
+		$result = $conn->query($sql);
+		if (!$result) {
+			die("Query failed: " . $conn->error);
+		}	
+		//$numrows = mysql_num_rows($result);
+		
+		if ($numrows != 0) {
+			// pass the current session customerID into python fuction to get recommended products for this user.
+			$output = shell_exec('/pages/productQuery.py' . $customerID);
+			
+			//Build item query for the recommended items for this user
+			$sql = "SELECT * FROM Products WHERE ProductID = ";
+			$sql .= $output;
+		}
+		
+	} else {
+		//builds the WHERE condition of the item query for the catalog page.
+		if ($category != '') {
+			$sql .= " WHERE";
+			// Adds the condition to WHERE statment of SQL query based on "category" selection in filter.
+			switch ($category) {
+				case 'clothing':
+					$sql .= " Category = 'Clothing'";
+					break;
+				case 'homeGoods':
+					$sql .= " Category = 'Home Goods'";
+					break;
+				case 'hobbies':
+					$sql .= " Category = 'Hobbies'";
+					break;
+				case 'healthWellness':
+					$sql .= " Category = 'Wellness'";
+					break;
+				default:
+					break;
+			}
+		}
+		// Here is the case that no "category" filter selection was made or if both "price" and "category" selction were chosen.
+		if($filterByPrice != '' and $category == ''){
+			$sql .= ' WHERE';
+		} else if($filterByPrice != '' and $category != ''){
+			$sql .= ' AND';
+		}
+		// Adds the condition to WHERE statment of SQL query based on "price" selection in filter.
+		if($filterByPrice != ''){
+			switch($filterByPrice){
+				case '0-24.99':
+					$sql .= " Price <= 24.99";
+					break;
+				case '25-49.99':
+					$sql .= " Price >= 25 AND Price <= 49.99";
+					break;
+				case '50-99.99':
+					$sql .= " Price >= 50 AND Price <= 99.99";
+					break;
+				case '100':
+					$sql .= " Price >= 100";
+					break;
+				default:
+					break;
+			}
+		}
+		// Checks if WHERE conditions have been made for "category" and "price" and determines how to build the SQL query.
+		if ($search != '') {
+			if ($category != '' || $filterByPrice != '') {
+				$sql .= " AND";
+			} else {
+				$sql .= " WHERE";
+			}
+			$sql .= " Name LIKE '%$search%'";
+		}
+		// Build the ORDER condition of the SQL query for the items of the catalog page
+		switch ($sortOrder) {
+			case 'low_to_high':
+				$sql .= " ORDER BY Price ASC";
+				break;
+			case 'high_to_low':
+				$sql .= " ORDER BY Price DESC";
+				break;
+			default:
+				$sql .= " ORDER BY Featured DESC";
+				break;
+		}
 
-    //builds the WHERE condition of the item query for the catalog page.
-    if ($category != '') {
-        $sql .= " WHERE";
-        // Adds the condition to WHERE statment of SQL query based on "category" selection in filter.
-        switch ($category) {
-            case 'clothing':
-                $sql .= " Category = 'Clothing'";
-                break;
-            case 'homeGoods':
-                $sql .= " Category = 'Home Goods'";
-                break;
-            case 'hobbies':
-                $sql .= " Category = 'Hobbies'";
-                break;
-            case 'healthWellness':
-                $sql .= " Category = 'Wellness'";
-                break;
-            default:
-                break;
-        }
-    }
-    // Here is the case that no "category" filter selection was made or if both "price" and "category" selction were chosen.
-    if($filterByPrice != '' and $category == ''){
-        $sql .= ' WHERE';
-    } else if($filterByPrice != '' and $category != ''){
-        $sql .= ' AND';
-    }
-    // Adds the condition to WHERE statment of SQL query based on "price" selection in filter.
-    if($filterByPrice != ''){
-        switch($filterByPrice){
-            case '0-24.99':
-                $sql .= " Price <= 24.99";
-                break;
-            case '25-49.99':
-                $sql .= " Price >= 25 AND Price <= 49.99";
-                break;
-            case '50-99.99':
-                $sql .= " Price >= 50 AND Price <= 99.99";
-                break;
-            case '100':
-                $sql .= " Price >= 100";
-                break;
-            default:
-                break;
-        }
-    }
-    // Checks if WHERE conditions have been made for "category" and "price" and determines how to build the SQL query.
-    if ($search != '') {
-        if ($category != '' || $filterByPrice != '') {
-            $sql .= " AND";
-        } else {
-            $sql .= " WHERE";
-        }
-        $sql .= " Name LIKE '%$search%'";
-    }
-    // Build the ORDER condition of the SQL query for the items of the catalog page
-    switch ($sortOrder) {
-        case 'low_to_high':
-            $sql .= " ORDER BY Price ASC";
-            break;
-        case 'high_to_low':
-            $sql .= " ORDER BY Price DESC";
-            break;
-        default:
-            $sql .= " ORDER BY Featured DESC";
-            break;
-    }
-
-    $sql .= " LIMIT $startItem, $limit";
-
+		$sql .= " LIMIT $startItem, $limit";
+	}
     $result = $conn->query($sql);
 
     if (!$result) {
@@ -197,7 +227,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 $sortOrder = isset($_GET['sort_by']) ? $_GET['sort_by'] : 'featured';
 $filterByPrice = isset($_GET['filterByPrice']) ? $_GET['filterByPrice'] : '';
 
-$result = getItems($itemsPerPage, $currentPage, $category, $sortOrder, $filterByPrice, $search);
+$result = getItems($itemsPerPage, $currentPage, $category, $sortOrder, $filterByPrice, $search, $customerID);
 $totalItems = getTotalItems($category, $filterByPrice, $search);
 $totalPages = ceil($totalItems / $itemsPerPage);
 ?>

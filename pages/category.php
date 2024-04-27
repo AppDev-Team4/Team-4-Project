@@ -7,10 +7,11 @@ if (!isset($_SESSION['customerID'])) {
 
 if (isset($_SESSION['customerID'])) {
     echo '<a href="/account/logout.php">Logout</a>';
+	$customerID = $_SESSION['customerID'];
+	$email = $_SESSION['email'];
 }
 
-$customerID = $_SESSION['customerID'];
-$email = $_SESSION['email'];
+
 
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 

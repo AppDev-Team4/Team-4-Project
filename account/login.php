@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['state'] = $state;
             $_SESSION['zipCode'] = $zipCode;
 
-            header("Location: /index.php");
+            header("Location: /home.php");
             exit();
         } else {
             echo "Invalid email or password";
-            echo '<a href="/LoginPage.php">Try again</a>';
+            echo '<a href="http://localhost/account/LoginPage.php"> Try again</a>';
         }
 
         $stmt->close();

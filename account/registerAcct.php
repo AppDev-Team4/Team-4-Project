@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($conn->query($sql) === TRUE) {
             $customerID = $conn->insert_id;
-            header("Location: http://peakcart.infinityfreeapp.com/account/LoginPage.php");
+            header("Location: http://localhost/account/LoginPage.php");
             exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
