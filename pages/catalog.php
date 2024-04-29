@@ -112,8 +112,9 @@ if ($isCustomerIdSet) {
                                 <option value="featured" <?php echo ($sortOrder === 'featured') ? 'selected' : ''; ?>>Featured</option>
                                 <option value="low_to_high" <?php echo ($sortOrder === 'low_to_high') ? 'selected' : ''; ?>>Price : Low to High</option>
                                 <option value="high_to_low" <?php echo ($sortOrder === 'high_to_low') ? 'selected' : ''; ?>>Price : High to Low</option>
+					<!-- Personalized recommendation tab should only be available to users who are logged into an account with previous purchase history-->			
 								<?php 
-								if ($isCustomerIdSet){
+								if ($isCustomerIdSet and previousCustHistory($customerID)){
 									echo '<option value="personalized_recommendation">Personalized Recommendation</option>';
 								}
 								?>
@@ -142,7 +143,6 @@ if ($isCustomerIdSet) {
                     </div>
                 </div>
 
-
                 <div class="bottom-div">
                     <?php
                         $count = 0;
@@ -161,9 +161,7 @@ if ($isCustomerIdSet) {
                         }
                     ?>
                 </div>
-                
-               
-             
+
             </div>
         </div>
     </div>
