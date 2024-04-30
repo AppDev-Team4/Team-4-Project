@@ -249,22 +249,15 @@ function getTotalItems($category, $filterByPrice, $search, $customerID, $sortOrd
 *
 */
 function previousCustHistory($customerID){
-	global $conn;
-	
-	$id = strval($customerID);
-	$sql = "SELECT COUNT(*) FROM customerpurchases WHERE customerID = ";
-	$sql .= $id;
-	$History = $conn->query($sql);
-    $HistoryResult = $History->fetch_assoc();
-	
-	if ($HistoryResult >= 1){
-		//user that's logged in has previous purchase history
-		$validHistory = True;
-	} else {
-		//user doesn't have previous purchase history
-		$validHistory = False;
-	}
-	return $validHistory;
+    global $conn;
+    $id = intval($customerID);
+    $sql = "SELECT COUNT(*) as count FROM customerpurchases WHERE CustomerID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row['count'] > 0;
 }
 
 	
